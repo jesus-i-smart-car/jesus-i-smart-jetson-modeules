@@ -1,0 +1,19 @@
+<launch>
+ 
+ <!-- joy node -->
+  <node respawn="true" pkg="joy" type="joy_node" name="ros_joy" >
+    <param name="dev" type="string" value="/dev/input/js0" />
+    <param name="deadzone" value="0.12" />
+  </node>
+
+ <!-- Axes -->
+  <param name="axis_linear" value="1" type="int"/>   
+  <param name="axis_angular" value="3" type="int"/>
+  <param name="scale_linear_adj" value="7" type="int"/>
+  <param name="scale_angular_adj" value="6" type="int"/>
+  <param name="max_linear" value="4" type="double"/>
+  <param name="max_angular" value="3.14158" type="double"/>  
+  <param name="scale_linear" value="1" type="double"/>   
+  <param name="scale_angular" value="0.5" type="double"/>   
+  <node pkg="xbox_joy_cmd_vel" type="xbox_joy_cmd_vel_node" name="teleop_x360"/>
+</launch>
